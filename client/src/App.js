@@ -22,9 +22,9 @@ import Arms from './components/arms'
 import UpperLegs from './components/upperlegs'
 import LowerLegs from './components/lowerlegs'
 import Homepage from './components/homepage'
-
+import { exerciseOptions } from './utils/fetchData';
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -111,17 +111,17 @@ const router = createBrowserRouter([
 function App() {
   const [exercises, setExercises] = useState([])
 
-  const options = {
-    method: 'GET',
-    url: 'https://exercisedb.p.rapidapi.com/exercises',
-    headers: {
-      'X-RapidAPI-Key': process.env.API_KEY,
-      'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-    }
-  };
+  // const options = {
+  //   method: 'GET',
+  //   url: 'https://exercisedb.p.rapidapi.com/exercises',
+  //   headers: {
+  //     'X-RapidAPI-Key': process.env.API_KEY,
+  //     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+  //   }
+  // };
 
   const getExercises = () => {
-    axios.request(options).then(function (response) {
+    axios.request(exerciseOptions).then(function (response) {
       setExercises(response.data);
     }).catch(function (error) {
       console.error(error);

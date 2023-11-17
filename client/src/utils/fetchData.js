@@ -3,9 +3,10 @@
 
 export const exerciseOptions = {
   method: 'GET',
-  url: 'https://exercisedb.p.rapidapi.com',
+  url: 'https://exercisedb.p.rapidapi.com/exercises',
+  params: {limit:'10000'},
   headers: {
-    'X-RapidAPI-Key': process.env.API_KEY,
+    'X-RapidAPI-Key': 'd8f4acfaafmsh692895d5aee0b51p16334cjsnc19b76761dd1',
     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
   }
 };
